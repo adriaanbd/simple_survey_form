@@ -1,6 +1,7 @@
 # Simple Survey Form with CSS Grid
 
 ## About
+
 This survey form project is based on FreeCodeCamp's (FCC) Responsive Web Design Certification curriculum. The  html/css requirements were written as user stories and can be found in the project's page ([here](https://learn.freecodecamp.org/responsive-web-design/responsive-web-design-projects/build-a-survey-form/)).
 
 You can also find my CodePen to this project over [here](https://codepen.io/adriaanbd/full/pQRqrq/), which is nice because it gives you something to look at, with the option of viewing the code side by side (click on Change View at the top right).
@@ -17,9 +18,6 @@ To view the static survey, you just need your browser. But you could also just t
 
 If you'd like to take the UI test for a run, you'd need to have Firefox browser, Python 3.6+ and the Selenium library. To get Selenium just run `pip install selenium` from your command line. Then inside the working directory were you have these files, run the `ui_test.py` with Python, i.e. `python ui_test.py`.
 
-
-## Would you like to help?
+## Feedback / Contributions
 
 All feedback/contributions are welcome. Please submit a ticket/issue. I'd really like to refactor the test files, as there is a lot of repetition that could be avoided. This is definitely in my bucket list, although I have to keep on going with the rest of the FCC projects (next one up is a Product Landing Page).
-
-
