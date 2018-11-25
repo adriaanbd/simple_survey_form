@@ -24,4 +24,4 @@ All feedback/contributions are welcome. Please submit a ticket/issue. I'd really
 
 ## How does it look
 
-![Snippet of Survey Form](https://github.com/adriaanbd/simple_survey_form/blob/master/survey_form.PNG "Snippet of Survey Form")
+![Snippet of Survey Form](https://github.com/adriaanbd/simple_survey_form/blob/master/resources/survey_form.PNG "Snippet of Survey Form")
