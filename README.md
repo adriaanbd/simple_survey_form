@@ -21,3 +21,7 @@ If you'd like to take the UI test for a run, you'd need to have Firefox browser,
 ## Feedback / Contributions
 
 All feedback/contributions are welcome. Please submit a ticket/issue. I'd really like to refactor the test files, as there is a lot of repetition that could be avoided. This is definitely in my bucket list, although I have to keep on going with the rest of the FCC projects (next one up is a Product Landing Page).
+
+## How does it look
+
+![Snippet of Survey Form](https://github.com/adriaanbd/simple_survey_form/blob/master/survey_form.PNG "Snippet of Survey Form")
