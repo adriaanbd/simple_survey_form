@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-      <meta charset="utf-8">
-      <title>Survey</title>
-      <link rel="stylesheet" type="text/css" href="survey.css">
-      <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans" rel="stylesheet">
-  </head>
-  <body>
+{% extends "base.html" %}
+
+{% block content %}
     <div class="grid-container">
       <form id="survey-form" action="#" method="post">
         <div class="title-description">
@@ -15,19 +9,13 @@
         </div>
         <label for="name" id="name-label">Name:</label>
         <input type="text" id="name" name="user-name" required
-               placeholder="Insert your name">
+                placeholder="Insert your name">
         <label for="email" id="email-label">Email:</label>
         <input type="email" id="email" name="user-mail" required
-               placeholder="Insert your email" minlength="3" maxlength="254">
+                placeholder="Insert your email" minlength="3" maxlength="254">
         <label for="number" id="number-label">Age:</label>
         <input type="number" id="number" name="user-age"
                placeholder="Insert your age" min="3" max="122">
-        <label for="dropdown" id="job-label">Employment Status:</label>
-        <select id="dropdown" name="job-status">
-            <option value="" hidden>Select your status</option>
-            <option value="employed">Employed</option>
-            <option value="unemployed">Unemployed</option>
-        </select>
         <div class="options-title">
           <p>Gender:</p>
         </div>
@@ -35,53 +23,66 @@
           <ul>
             <li>
               <input type="radio" id="choice-1"
-                     name="gender-choice" value="male">
+                      name="gender-choice" value="male">
               <label for="choice-1">Male</label>
             </li>
             <li>
               <input type="radio" id="choice-2"
-                     name="gender-choice" value="female">
+                      name="gender-choice" value="female">
               <label for="choice-2">Female</label></li>
             <li>
               <input type="radio" id="choice-3"
-                     name="gender-choice" value="neutral">
+                      name="gender-choice" value="neutral">
               <label for="choice-3">Neutral</label></li>
             <li>
               <input type="radio" id="choice-4"
-                     name="gender-choice" value="undisclosed">
-              <label for="choice-4">Prefer not to say</label>
+                      name="gender-choice" value="undisclosed">
+              <label for="choice-4">No preference</label>
             </li>
           </ul>
         </div>
+        <label for="dropdown" id="job-label">Employment Status:</label>
+        <select id="dropdown" name="job-status">
+            <option value="" hidden>Which web development path do you most
+            identify yourself with?</option>
+            <option value="front">Front End</option>
+            <option value="back">Back End</option>
+            <option value="full">Full Stack</option>
+        </select>
         <div class="options-title">
-          <p>Select your options:</p>
+          <p>Which programming languages do you use?:</p>
         </div>
         <div class="checkbox-options">
           <ul>
             <li>
               <input type="checkbox" id="option-1" name="checkbox-option"
-                     value="checkbox-value">
-              <label for="option-1">Option A</label>
+                      value="checkbox-value">
+              <label for="javascript">JavaScript</label>
             </li>
             <li>
               <input type="checkbox" id="option-2" name="checkbox-option"
-                     value="checkbox-value">
-              <label for="option-2">Option B</label>
+                      value="checkbox-value">
+              <label for="python">Python</label>
             </li>
             <li>
-              <input type="checkbox" id="option-3" name="checkbox-option"
-                     value="checkbox-value">
-              <label for="option-3">Option C</label>
+              <input type="checkbox" id="csharp" name="checkbox-option"
+                      value="checkbox-value">
+              <label for="csharp">C#</label>
             </li>
             <li>
-              <input type="checkbox" id="option-4" name="checkbox-option"
-                     value="checkbox-value">
-              <label for="option-4">Option D</label>
+              <input type="checkbox" id="java" name="checkbox-option"
+                      value="checkbox-value">
+              <label for="java">Java</label>
+            </li>
+            <li>
+              <input type="checkbox" id="other" name="checkbox-option"
+                      value="checkbox-value">
+              <label for="other">Other</label>
             </li>
           </ul>
         </div>
         <div id="comments-box">
-          <p>Any comments or suggestions?</p>
+          <p>What do you like about web development?</p>
           <label for="comments"></label>
           <textarea name="user-comments" id="comments" cols="30" rows="5" placeholder="Insert your comments here"></textarea>
         </div>
@@ -90,5 +91,4 @@
         </div>
       </form>
     </div>
-  </body>
-</html>
+{% endblock %}
