@@ -2,16 +2,23 @@
 
 {% block content %}
     <div class="grid-container">
-      <form id="survey-form" action="" method="post" novalidate>
+      
+      <form id="survey-form" action="" method="post">
         {{ form.hidden_tag() }}
         <div class="title-description">
           <h1 id="title">Survey Form</h1>
           <p id="description">This is the description of the survey</p>
+          <p id="flash-message">
+          {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            {% for message in messages %}
+            {{ message }}
+            {% endfor %}
+          {% endif %}
+          {% endwith %}
+          </p>
         </div>
-        <!-- <label for="name" id="name-label">Name:</label> -->
         {{ form.name.label }}
-        <!--<input type="text" id="name" name="user-name" required
-                placeholder="Insert your name"> -->
         {{ form.name(size=32) }}
         <label for="email" id="email-label">Email:</label>
         <input type="email" id="email" name="user-mail" required

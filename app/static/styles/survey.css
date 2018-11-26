@@ -12,7 +12,11 @@ body {
     font-size: 1.2em;
     font-style: italic;
   }
-  
+
+  #flash-message {
+    color: rgba(178, 34, 34, 0.726);
+  }
+
   .grid-container {
     display: grid;
     grid-template-areas:
@@ -21,7 +25,7 @@ body {
     ". c c ."
     ". . . .";
     grid-template-columns: 0.7fr 1.5fr 1.5fr 0.7fr;
-    grid-template-rows: 0.7fr 1.5fr 1.5fr 0.7fr;
+    grid-template-rows: 0.5fr 1.5fr 1.5fr 0.5fr;
     justify-items: center;
   }
   
