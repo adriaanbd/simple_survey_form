@@ -2,8 +2,8 @@
 
 {% block content %}
     <div class="grid-container">
-      <form id="survey-form" action="" method="post" no validate>
-        {{ form.hidden_tag()}}  <!-- generates CSRF token -->
+      <form id="survey-form" action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
         <div class="title-description">
           <h1 id="title">Survey Form</h1>
           <p id="description">This is the description of the survey</p>
@@ -12,7 +12,7 @@
         {{ form.name.label }}
         <!--<input type="text" id="name" name="user-name" required
                 placeholder="Insert your name"> -->
-        {{ form.name.(size=70) }}
+        {{ form.name(size=32) }}
         <label for="email" id="email-label">Email:</label>
         <input type="email" id="email" name="user-mail" required
                 placeholder="Insert your email" minlength="3" maxlength="254">
@@ -44,10 +44,10 @@
             </li>
           </ul>
         </div>
-        <label for="dropdown" id="job-label">Employment Status:</label>
+        <label for="dropdown" id="job-label">Which web development path do you
+        most identify yourself with?</label>
         <select id="dropdown" name="job-status">
-            <option value="" hidden>Which web development path do you most
-            identify yourself with?</option>
+            <option value="" hidden></option>
             <option value="front">Front End</option>
             <option value="back">Back End</option>
             <option value="full">Full Stack</option>
