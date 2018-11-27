@@ -136,7 +136,7 @@ class SurveyPage(BasePage):
 
         return any(item.is_selected() for item in element)
 
-    def can_select_random_dropdown_option(self):
+    def can_select_random_dropdown_options(self):
         element = Select(
             self.driver.find_element(*SurveyLocators.SELECT_DROPDOWN))
         options = element.options
@@ -147,9 +147,8 @@ class SurveyPage(BasePage):
         ]
         value = random.choice(values)  # select random value from values
         element.select_by_value(value)
-        selected = [item.text.lower() for item in element.all_selected_options]
 
-        return value in selected
+        return value in values
 
     def can_select_random_checkbox_options(self):
         element = self.driver.find_elements(
