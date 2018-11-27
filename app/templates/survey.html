@@ -19,46 +19,28 @@
           </p>
         </div>
         {{ form.name.label }}
-        {{ form.name(size=32) }}
-        <label for="email" id="email-label">Email:</label>
-        <input type="email" id="email" name="user-mail" required
-                placeholder="Insert your email" minlength="3" maxlength="254">
-        <label for="number" id="number-label">Age:</label>
-        <input type="number" id="number" name="user-age"
-               placeholder="Insert your age" min="3" max="122">
+        {{ form.name(size=32, placeholder='Insert your name') }}
+        {{ form.email.label }}
+        {{ form.email(size=32, maxlength=254, minlength=3, 
+                      placeholder='Insert your email') }}
+        {{ form.age.label }}
+        {{ form.age(size=16, min=3, max=122, placeholder='Insert your age') }}
         <div class="options-title">
-          <p>Gender:</p>
+          <p>{{ form.gender.label }}</p>
         </div>
-        <div class="gender-options">
+        <div class="gender-options">  
           <ul>
+          {% for gender in form.gender %}
             <li>
-              <input type="radio" id="choice-1"
-                      name="gender-choice" value="male">
-              <label for="choice-1">Male</label>
+              {{ gender }}
+              {{ gender.label }}
             </li>
-            <li>
-              <input type="radio" id="choice-2"
-                      name="gender-choice" value="female">
-              <label for="choice-2">Female</label></li>
-            <li>
-              <input type="radio" id="choice-3"
-                      name="gender-choice" value="neutral">
-              <label for="choice-3">Neutral</label></li>
-            <li>
-              <input type="radio" id="choice-4"
-                      name="gender-choice" value="undisclosed">
-              <label for="choice-4">No preference</label>
-            </li>
+          {% endfor %}
           </ul>
+          
         </div>
-        <label for="dropdown" id="path">Which web development path do you
-        most identify yourself with?</label>
-        <select id="dropdown" name="path-choice">
-            <option value="" hidden>Please choose an option</option>
-            <option value="front">Front End</option>
-            <option value="back">Back End</option>
-            <option value="full">Full Stack</option>
-        </select>
+        {{ form.path.label }}
+        {{ form.path }}
         <div class="options-title">
           <p>Which programming languages do you use?:</p>
         </div>
