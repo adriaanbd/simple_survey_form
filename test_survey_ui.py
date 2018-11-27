@@ -8,7 +8,7 @@ class SurveyFormTest(unittest.TestCase):
 
     def setUp(self):
         self.driver = webdriver.Firefox()
-        self.driver.get(valid_selenium_file_path("survey.html"))
+        self.driver.get("http://127.0.0.1:5000/")
 
     def test_validate_main_html_components(self):
         survey_page = page.SurveyPage(self.driver)
@@ -53,7 +53,7 @@ class SurveyFormTest(unittest.TestCase):
         survey_page.insert_age(age)
 
         self.assertTrue(survey_page.can_select_random_input_radio_options())
-        self.assertTrue(survey_page.can_select_random_dropdown_option())
+        self.assertTrue(survey_page.can_select_random_dropdown_options())
         self.assertTrue(survey_page.can_select_random_checkbox_options())
         self.assertTrue(survey_page.can_insert_text_into_text_area())
 
