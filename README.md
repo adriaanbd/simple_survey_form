@@ -13,6 +13,8 @@ used the page object design pattern, separating the location of the web
 elements (located either by id, css selector, tag name) on the `locators.py`
 file, and the page method actions using those web elements on `page.py`.
 
+Please due note that the backend is still in development.
+
 ## Here's a snippet of the Survey Form
 
 ![Snippet of Survey Form](https://github.com/adriaanbd/simple_survey_form/blob/master/resources/survey_form.PNG "Snippet of Survey Form")

@@ -1,7 +1,7 @@
 import os
 import unittest
 from selenium import webdriver
-import page
+from selenium_page_resources import page
 
 
 class SurveyFormTest(unittest.TestCase):
