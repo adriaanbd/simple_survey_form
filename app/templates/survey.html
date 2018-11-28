@@ -41,35 +41,16 @@
         {{ form.path.label }}
         {{ form.path }}
         <div class="options-title">
-          <p>Which programming languages do you use?:</p>
+          <p>{{ form.language.label }}</p>
         </div>
         <div class="checkbox-options">
           <ul>
+          {% for language in form.language %}
             <li>
-              <input type="checkbox" id="option-1" name="checkbox-option"
-                      value="checkbox-value">
-              <label for="javascript">JavaScript</label>
+              {{ language }}
+              {{ language.label}}
             </li>
-            <li>
-              <input type="checkbox" id="option-2" name="checkbox-option"
-                      value="checkbox-value">
-              <label for="python">Python</label>
-            </li>
-            <li>
-              <input type="checkbox" id="csharp" name="checkbox-option"
-                      value="checkbox-value">
-              <label for="csharp">C#</label>
-            </li>
-            <li>
-              <input type="checkbox" id="java" name="checkbox-option"
-                      value="checkbox-value">
-              <label for="java">Java</label>
-            </li>
-            <li>
-              <input type="checkbox" id="other" name="checkbox-option"
-                      value="checkbox-value">
-              <label for="other">Other</label>
-            </li>
+          {% endfor %}
           </ul>
         </div>
         <div id="comments-box">
