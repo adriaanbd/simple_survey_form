@@ -54,12 +54,10 @@
           </ul>
         </div>
         <div id="comments-box">
-          <p>What do you like about web development?</p>
-          <label for="comments"></label>
-          <textarea name="user-comments" id="comments" cols="30" rows="5" placeholder="Insert your comments here"></textarea>
+          <p>What do you like about your chosen web development path?</p>
+          {{ form.text_area(cols=40, rows=5) }}
         </div>
         <div id="btn">
-          <!-- <button type="submit" id="submit">Submit</button> -->
           {{ form.submit() }}
         </div>
       </form>
