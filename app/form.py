@@ -1,7 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import (
-    StringField, SubmitField, IntegerField, RadioField, SelectField, SelectMultipleField
-    )
+from wtforms import (StringField, SubmitField, IntegerField, RadioField,                            SelectField, SelectMultipleField, TextAreaField)
 from wtforms.widgets import CheckboxInput, ListWidget
 from wtforms.validators import DataRequired
 
@@ -33,5 +31,6 @@ class SurveyForm(FlaskForm):
         ('other', 'Other'),
         ],
         option_widget=CheckboxInput(),
-        widget=ListWidget(prefix_label=False))
+        widget=ListWidget())
+    text_area = TextAreaField('comments')
     submit = SubmitField('Submit')
