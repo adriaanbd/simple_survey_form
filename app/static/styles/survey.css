@@ -16,7 +16,7 @@ body {
   #flash-message {
     color: rgba(178, 34, 34, 0.726);
   }
-
+  
   .grid-container {
     display: grid;
     grid-template-areas:
@@ -43,8 +43,9 @@ body {
     background-color: #f0f3f3;
     align-items: center;
   }
-  
+
   label {
+    grid-row: auto;
     grid-column: 2 / 3;
     text-align: right;
   }

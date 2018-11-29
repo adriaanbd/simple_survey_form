@@ -2,9 +2,8 @@
 
 {% block content %}
     <div class="grid-container">
-      
       <form id="survey-form" action="" method="post">
-        {{ form.hidden_tag() }}
+        {{ form.csrf_token }}
         <div class="title-description">
           <h1 id="title">Survey Form</h1>
           <p id="description">This is the description of the survey</p>
@@ -18,13 +17,17 @@
           {% endwith %}
           </p>
         </div>
+
         {{ form.name.label }}
         {{ form.name(size=32, placeholder='Insert your name') }}
+       
         {{ form.email.label }}
         {{ form.email(size=32, maxlength=254, minlength=3, 
                       placeholder='Insert your email') }}
+        
         {{ form.age.label }}
         {{ form.age(size=16, min=3, max=122, placeholder='Insert your age') }}
+
         <div class="options-title">
           <p>{{ form.gender.label }}</p>
         </div>

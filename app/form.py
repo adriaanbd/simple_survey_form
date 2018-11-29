@@ -1,13 +1,14 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, IntegerField, RadioField,      SelectField, SelectMultipleField, TextAreaField
+from wtforms import StringField, SubmitField, RadioField,      SelectField, SelectMultipleField, TextAreaField
+from wtforms.fields.html5 import EmailField, IntegerField
 from wtforms.widgets import CheckboxInput, ListWidget
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired, Length, Email, NumberRange
 
 class SurveyForm(FlaskForm):
 
-    name = StringField('Name', validators=[DataRequired()])
+    name = StringField('Name', validators=[DataRequired(), Length(max=100)])
 
-    email = StringField('Email', validators=[DataRequired()])
+    email = EmailField('Email', validators=[DataRequired()])
 
     age = IntegerField('Age')
 
