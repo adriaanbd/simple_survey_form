@@ -2,7 +2,7 @@
 
 ## About
 
-This project was created with two main ideas:
+This project was created with the following ideas:
 
 1. Comply with the HTML/CSS requirements set forth by the *Build a
    Survey Form* project, which is the second project out of five, from
