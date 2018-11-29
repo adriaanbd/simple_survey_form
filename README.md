@@ -56,10 +56,14 @@ initial committ consisting of the static html/css page, to what it is now.
    succesfully. If so, then you'd need to setup your virtual environment with
    the following comman `py venv myvenv`.
 
-4. Install all requirements. In your local directory where you cloned the repo,
+4. If you using a Bash terminal, activate your virtual environment with `source
+   venv/myvenv/activate`. If it doesn't work for you, please Google it online.
+   There are plenty of resources available.
+
+5. Install all requirements. In your local directory where you cloned the repo,
    type `pip install -r requirements.txt` in your terminal.
 
-5. If you'd like to run the User Interaface tests, since I used the Firefox
+6. If you'd like to run the User Interaface tests, since I used the Firefox
    driver, you'd need to have Firefox installed, and the geckodriver on which
    Selenium relies on to use Firefox. You can get geckodriver
    [here](https://github.com/mozilla/geckodriver/releases). Make sure it's in
