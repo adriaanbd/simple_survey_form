@@ -7,6 +7,6 @@ from app.form import SurveyForm
 def index():
     form = SurveyForm()
     if form.validate_on_submit():
-        flash(f"Thanks {form.name.data}, your form has been submitted!")
+        flash(f"Thanks, your form has been submitted!")
         return redirect(url_for('index'))
     return render_template('survey.html', form=form)
