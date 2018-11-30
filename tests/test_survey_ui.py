@@ -43,6 +43,7 @@ class SurveyFormTest(unittest.TestCase):
 
         self.assertTrue(survey_page.is_name_html_validation_error())
         self.assertTrue(survey_page.is_email_html_validation_error())
+        self.assertTrue(survey_page.does_flash_submission_message_exist())
 
     def test_form_with_all_other_inputs_expect_no_error(self):
         survey_page = page.SurveyPage(self.driver)
@@ -70,6 +71,7 @@ class SurveyFormTest(unittest.TestCase):
         survey_page.click_submit_button()
 
         self.assertTrue(survey_page.is_name_html_validation_error())
+        self.assertFalse(survey_page.does_flash_submission_message_exist())
 
     def test_email_validation_error(self):
         survey_page = page.SurveyPage(self.driver)
@@ -81,6 +83,7 @@ class SurveyFormTest(unittest.TestCase):
         survey_page.click_submit_button()
 
         self.assertTrue(survey_page.is_email_html_validation_error())
+        self.assertFalse(survey_page.does_flash_submission_message_exist())
 
     def test_age_out_of_range_validation_error(self):
         survey_page = page.SurveyPage(self.driver)
@@ -93,6 +96,7 @@ class SurveyFormTest(unittest.TestCase):
         survey_page.click_submit_button()
 
         self.assertTrue(survey_page.is_age_html_validation_error())
+        self.assertFalse(survey_page.does_flash_submission_message_exist())
 
     def test_age_with_non_numbers_expect_error(self):
         survey_page = page.SurveyPage(self.driver)
@@ -105,6 +109,8 @@ class SurveyFormTest(unittest.TestCase):
         survey_page.click_submit_button()
 
         self.assertTrue(survey_page.is_age_html_validation_error())
+        self.assertFalse(survey_page.does_flash_submission_message_exist())
+
 
     def tearDown(self):
         self.driver.close()
