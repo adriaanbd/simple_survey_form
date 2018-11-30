@@ -183,3 +183,10 @@ class SurveyPage(BasePage):
         """Submits the form"""
         element = self.driver.find_element(*SurveyLocators.SUBMIT_BUTTON)
         element.click()
+
+    def does_flash_submission_message_exist(self):
+        """Gets the text from "id='flash-message" if any"""
+        element = self.driver.find_element(*SurveyLocators.FLASH)
+        if element.text:
+            return True
+        return False

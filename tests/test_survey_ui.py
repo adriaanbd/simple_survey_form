@@ -58,6 +58,7 @@ class SurveyFormTest(unittest.TestCase):
         self.assertTrue(survey_page.can_insert_text_into_text_area())
 
         survey_page.click_submit_button()
+        self.assertTrue(survey_page.does_flash_submission_message_exist())
 
     def test_name_validation_error(self):
         survey_page = page.SurveyPage(self.driver)
@@ -107,12 +108,6 @@ class SurveyFormTest(unittest.TestCase):
 
     def tearDown(self):
         self.driver.close()
-
-
-def valid_selenium_file_path(file_name):
-    html_file_path = os.getcwd() + "/" + file_name
-    valid_file_path = "file:///" + html_file_path
-    return valid_file_path
 
 
 if __name__ == "__main__":
