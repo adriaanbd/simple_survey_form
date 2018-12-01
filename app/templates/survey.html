@@ -1,68 +1,68 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="grid-container">
-      <form id="survey-form" action="" method="post">
+<div class="grid-container">
+    <form id="survey-form" action="" method="post">
         {{ form.csrf_token }}
         <div class="title-description">
-          <h1 id="title">Survey Form</h1>
-          <p id="description">This is the description of the survey</p>
-          <p id="flash-message">
-          {% with messages = get_flashed_messages() %}
-          {% if messages %}
-            {% for message in messages %}
-            {{ message }}
-            {% endfor %}
-          {% endif %}
-          {% endwith %}
-          </p>
+            <h1 id="title">Survey Form</h1>
+            <p id="description">This is the description of the survey</p>
+            <p id="flash-message">
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                {% for message in messages %}
+                {{ message }}
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+            </p>
         </div>
 
         {{ form.name.label }}
         {{ form.name(size=32, placeholder='Insert your name') }}
-       
+
         {{ form.email.label }}
-        {{ form.email(size=32, maxlength=254, minlength=3, 
-                      placeholder='Insert your email') }}
-        
+        {{ form.email(size=32, maxlength=254, minlength=3,
+        placeholder='Insert your email') }}
+
         {{ form.age.label }}
         {{ form.age(size=16, min=3, max=122, placeholder='Insert your age') }}
 
         <div class="options-title">
-          <p>{{ form.gender.label }}</p>
+            <p>{{ form.gender.label }}</p>
         </div>
-        <div class="gender-options">  
-          <ul>
-          {% for gender in form.gender %}
-            <li>
-              {{ gender }}
-              {{ gender.label }}
-            </li>
-          {% endfor %}
-          </ul>
+        <div class="gender-options">
+            <ul>
+                {% for gender in form.gender %}
+                <li>
+                    {{ gender }}
+                    {{ gender.label }}
+                </li>
+                {% endfor %}
+            </ul>
         </div>
         {{ form.path.label }}
         {{ form.path }}
         <div class="options-title">
-          <p>{{ form.language.label }}</p>
+            <p>{{ form.language.label }}</p>
         </div>
         <div class="checkbox-options">
-          <ul>
-          {% for language in form.language %}
-            <li>
-              {{ language }}
-              {{ language.label}}
-            </li>
-          {% endfor %}
-          </ul>
+            <ul>
+                {% for language in form.language %}
+                <li>
+                    {{ language }}
+                    {{ language.label}}
+                </li>
+                {% endfor %}
+            </ul>
         </div>
         <div id="comments-box">
-          <p>What do you like about your chosen web development path?</p>
-          {{ form.text_area(cols=40, rows=5) }}
+            <p>What do you like about your chosen web development path?</p>
+            {{ form.text_area(cols=40, rows=5) }}
         </div>
         <div id="btn">
-          {{ form.submit() }}
+            {{ form.submit() }}
         </div>
-      </form>
-    </div>
+    </form>
+</div>
 {% endblock %}
