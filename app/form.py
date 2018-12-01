@@ -1,6 +1,5 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, RadioField, SelectField, SelectMultipleField, TextAreaField
-from wtforms.fields import HiddenField
 from wtforms.fields.html5 import EmailField, IntegerField
 from wtforms.widgets import CheckboxInput, ListWidget
 from wtforms.validators import DataRequired, Length, Optional
