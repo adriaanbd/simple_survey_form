@@ -16,6 +16,11 @@ body {
   #flash-message {
     color: rgba(178, 34, 34, 0.726);
   }
+
+  #error {
+    color: rgba(178, 34, 34, 0.726);
+    grid-column: 3;
+  }
   
   .grid-container {
     display: grid;

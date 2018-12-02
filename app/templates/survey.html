@@ -9,11 +9,11 @@
             <p id="description">This is the description of the survey</p>
             <p id="flash-message">
                 {% with messages = get_flashed_messages() %}
-                {% if messages %}
-                {% for message in messages %}
-                {{ message }}
-                {% endfor %}
-                {% endif %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            {{ message }}
+                        {% endfor %}
+                    {% endif %}
                 {% endwith %}
             </p>
         </div>
@@ -24,6 +24,10 @@
         {{ form.email.label }}
         {{ form.email(size=32, maxlength=254, minlength=3,
         placeholder='Insert your email') }}
+        
+        {% for error in form.email.errors %}
+        <span id="error">{{ error }}</span>
+        {% endfor %}
 
         {{ form.age.label }}
         {{ form.age(size=16, min=3, max=122, placeholder='Insert your age') }}
