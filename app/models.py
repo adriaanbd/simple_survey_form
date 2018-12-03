@@ -8,7 +8,7 @@ class Voter(db.Model):
     answers = db.relationship('Answer', backref='voter', lazy='dynamic')
 
     def __repr__(self):
-        return f'<User {self.name}>'
+        return f'<Voter {self.name}>'
 
 
 class Answer(db.Model):
@@ -30,7 +30,7 @@ class Language(db.Model):
     answer_id = db.Column(db.Integer, db.ForeignKey('answer.id'))
 
     def __repr__(self):
-        return f'<Answer {self.language}>'
+        return f'<Language {self.language}>'
 
 
 class Comment(db.Model):
@@ -39,4 +39,4 @@ class Comment(db.Model):
     answer_id = db.Column(db.Integer, db.ForeignKey('answer.id'))
 
     def __repr__(self):
-        return f'<Answer {self.comment}>'
+        return f'<Comment {self.comment}>'
