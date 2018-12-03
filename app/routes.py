@@ -3,6 +3,7 @@ from app import app, db
 from app.models import Voter, Answer
 from app.form import SurveyForm
 
+
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
 def index():
