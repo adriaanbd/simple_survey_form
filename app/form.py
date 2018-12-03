@@ -1,9 +1,12 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, RadioField, SelectField, SelectMultipleField, TextAreaField
+from wtforms import (
+    StringField, SubmitField, RadioField, SelectField,
+    SelectMultipleField, TextAreaField)
 from wtforms.fields.html5 import EmailField, IntegerField
 from wtforms.widgets import CheckboxInput, ListWidget
 from wtforms.validators import ValidationError, DataRequired, Length, Optional
 from app.models import Voter
+
 
 class SurveyForm(FlaskForm):
 
@@ -26,12 +29,12 @@ class SurveyForm(FlaskForm):
             # ('', 'Select your path'),
             ('front', 'Front End'),
             ('back', 'Back End'),
-            ('full','Full Stack'),
+            ('full', 'Full Stack'),
         ])
 
     language = SelectMultipleField(
         'What programming languages do you use?',
-        choices = [
+        choices=[
             ('js', 'JavaScript'),
             ('ts', 'TypeScript'),
             ('py', 'Python'),
