@@ -30,7 +30,6 @@ def index():
                 answer=answer
             )
             db.session.add(language)
-           
         db.session.commit()
 
         comment = Comment(
