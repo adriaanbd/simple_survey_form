@@ -34,7 +34,7 @@ class Language(db.Model):
 
 
 class Comment(db.Model):
-    comment_id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
     comment = db.Column(db.String(200))
     answer_id = db.Column(db.Integer, db.ForeignKey('answer.id'))
 

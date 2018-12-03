@@ -14,27 +14,28 @@ def index():
         db.session.add(voter)
         db.session.commit()
 
-        answers = Answer(
+        answer = Answer(
             age=form.age.data,
             gender=form.gender.data,
             path=form.path.data,
             voter=voter
             )
 
-        db.session.add(answers)
+        db.session.add(answer)
         db.session.commit()
 
-        language = Language(
-            language=form.language.data,
-            answer=answers
-        )
-
-        db.session.add(language)
+        for i in range(0, len(form.language.data)):
+            language = Language(
+                language=form.language.data[i],
+                answer=answer
+            )
+            db.session.add(language)
+           
         db.session.commit()
 
         comment = Comment(
             comment=form.text_area.data,
-            answer=answers
+            answer=answer
         )
 
         db.session.add(comment)
