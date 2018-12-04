@@ -24,22 +24,9 @@ project:
 
 * The user interface (HTML/CSS),
 * Middleware (Flask), and
-* Database (to be determined).
+* Database (SQLite).
 
-## Why would you fork this, use this and/or take a look at this
-
-1. You're going through FCC's Front End Projects, or any other similar
-   undertaking, but would like to experience small building blocks of full
-   stack development, particularly using Python for the Back End. Note that FCC
-   is heavily focused on JavaScript, which you'll still need for the Front End,
-   but not necesarily for the Back End.
-
-2. You're an employer looking at this repo.
-
-In both of these cases, please take a look at how the project evolved, from the
-initial committ consisting of the static html/css page, to what it is now.
-
-## How would you run this locally
+## Getting started
 
 1. This project was done with Python 3.7.
 
@@ -56,28 +43,90 @@ initial committ consisting of the static html/css page, to what it is now.
    succesfully. If so, then you'd need to setup your virtual environment with
    the following comman `py venv myvenv`.
 
-4. If you using a Bash terminal, activate your virtual environment with `source
+4. If you're using a Bash terminal, activate your virtual environment with `source
    venv/myvenv/activate`. If it doesn't work for you, please Google it online.
    There are plenty of resources available.
 
 5. Install all requirements. In your local directory where you cloned the repo,
    type `pip install -r requirements.txt` in your terminal.
 
-6. If you'd like to run the User Interaface tests, since I used the Firefox
-   driver, you'd need to have Firefox installed, and the geckodriver on which
-   Selenium relies on to use Firefox. You can get geckodriver
-   [here](https://github.com/mozilla/geckodriver/releases). Make sure it's in
-   your PATH. If you're having problems with Selenium, make sure to refer to [this
-   page](https://selenium-python.readthedocs.io/installation.html), making sure
-   everything's installed correctly.
+## Set up the database
+
+1. From the terminal, run the command `flask db init`
+
+2. You should see a `migrations` folder in your root directory.
+
+3. Migrate your db by running `flask db migrate`
+
+4. You should see some new files in your `/migrations` folder
+
+5. Make the db setup permanent by running `flask db upgrade`
+
+## Play with your database to check everything's alright
+
+1. From your terminal, run `flask shell`
+
+2. This will load all configuration values with access to the db model.
+
+3. Enter and check the following:
+
+```
+>>> Voter.query.all()
+[]
+>>> v = Voter(name="John Doe", email="john@doe.com")
+>>> v
+<Voter John Doe>
+>>> db.session.add(v)
+>>> db.session.commit()
+>>> a = Answer(age=31, gender='Male', path='Full Stack', voter=v)
+>>> a
+<Answer (31, 'Male', 'Full Stack')>
+>>> a.voter
+<Voter John Doe>
+>>> db.session.add(a)
+>>> db.session.commit()
+>>> l = Language(language='Python', voter=v)
+>>> l.language, l.voter
+('Python', <Voter John Doe>)
+>>> db.session.add(l)
+>>> db.session.commit()
+>>> c = Comment(comment='I love to code', voter=v)
+>>> c.comment, c.voter
+('I love to code', <Voter John Doe>)
+>>> db.session.add(c)
+>>> db.session.commit()
+```
 
 ## Starting the server locally to interact with the Survey Form
 
 1. In your terminal, type `flask run`
+
 2. Either click on the link provided in your terminal `http://127.0.0.1:5000/`
+
    or insert it directly on your web browser.
 
-## Running the User Interface tests
+## Fill and submit the form
+
+1. Fill all the values in the form
+
+2. Name and email are required values
+
+3. Click on submit, at which point you *should* receive a "Your form was submitted" message in red.
+
+## Check your db again to check that it received the values from the form
+
+1. `flask shell`
+
+2. Run the following and check that the output is the same as the values you entered in the form.
+
+```
+>>>Voter.query.all()
+>>>Answer.query.all()
+>>>Language.query.all()
+>>>Comment.query.all()
+```
+
+## Running the User Interface tests (this hasn't been thoroughly tested with db)
 
 1. Make sure your local server is running.
 2. In the terminal, type `python -m unittest`
@@ -95,13 +144,10 @@ place.
 
 ## Further notes
 
-Back end development is still on going, as I'm exploring adding database
-functionality to store survey votes. Furthermore, there are a few more tests
-that need to be added, specifically testing the GET and POST, and considering changing
-the testing over to pytest.
+Development is still in progress:
 
-Nevertheless, development will carry on in the `develop` branch and the
-`master` branch will only be updated if all tests pass.
+* Unittest will be replaced by pytest.
+* More tests will be added.
 
 ## Here's a snippet of the Survey Form
 
