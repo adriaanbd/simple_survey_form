@@ -1,9 +1,12 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, RadioField, SelectField, SelectMultipleField, TextAreaField
-from wtforms.fields import HiddenField
+from wtforms import (
+    StringField, SubmitField, RadioField, SelectField,
+    SelectMultipleField, TextAreaField)
 from wtforms.fields.html5 import EmailField, IntegerField
 from wtforms.widgets import CheckboxInput, ListWidget
-from wtforms.validators import DataRequired, Length, Optional
+from wtforms.validators import ValidationError, DataRequired, Length, Optional
+from app.models import Voter
+
 
 class SurveyForm(FlaskForm):
 
@@ -26,12 +29,12 @@ class SurveyForm(FlaskForm):
             # ('', 'Select your path'),
             ('front', 'Front End'),
             ('back', 'Back End'),
-            ('full','Full Stack'),
+            ('full', 'Full Stack'),
         ])
 
     language = SelectMultipleField(
         'What programming languages do you use?',
-        choices = [
+        choices=[
             ('js', 'JavaScript'),
             ('ts', 'TypeScript'),
             ('py', 'Python'),
@@ -45,3 +48,8 @@ class SurveyForm(FlaskForm):
     text_area = TextAreaField('comments')
 
     submit = SubmitField('Submit')
+
+    def validate_email(self, email):
+        voter = Voter.query.filter_by(email=email.data).first()
+        if voter is not None:
+            raise ValidationError('Email already submitted!')
