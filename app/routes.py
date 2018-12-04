@@ -27,14 +27,14 @@ def index():
         for i in range(0, len(form.language.data)):
             language = Language(
                 language=form.language.data[i],
-                answer=answer
+                voter=voter
             )
             db.session.add(language)
         db.session.commit()
 
         comment = Comment(
             comment=form.text_area.data,
-            answer=answer
+            voter=voter
         )
 
         db.session.add(comment)
